@@ -1,0 +1,218 @@
+/* Targeted homepage refinements. The approved Concept B composition remains unchanged. */
+
+.b-home .b-hero--building {
+  --hero-parallax: 0px;
+  --hero-pan-x: 0px;
+}
+
+.b-home .b-hero--building .b-hero__media {
+  z-index: 0;
+  overflow: hidden;
+  isolation: isolate;
+  opacity: .84;
+  transform: scale(1.024);
+  transition:
+    opacity 1.2s cubic-bezier(.2,.8,.2,1),
+    transform 1.55s cubic-bezier(.2,.8,.2,1);
+}
+
+body.b-home.polish-loaded .b-hero--building .b-hero__media {
+  opacity: 1;
+  transform: none;
+}
+
+.b-home .b-hero--building .b-hero__media img {
+  position: relative;
+  z-index: 0;
+  filter: saturate(1.08) contrast(1.035);
+  transform-origin: 50% 48%;
+  animation: systemizaHeroCamera 17s cubic-bezier(.45,.05,.25,1) infinite alternate;
+  will-change: transform;
+}
+
+.b-home .b-hero--building .b-hero__media::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: -8%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 36% 43%, rgba(212,37,39,.27) 0, rgba(212,37,39,.08) 18%, transparent 38%),
+    radial-gradient(circle at 73% 58%, rgba(212,37,39,.18) 0, transparent 31%),
+    linear-gradient(103deg, transparent 28%, rgba(212,37,39,.08) 49%, transparent 67%);
+  mix-blend-mode: screen;
+  opacity: .42;
+  transform: translate3d(-1.5%, 0, 0) scale(1.03);
+  animation: systemizaHeroGlow 8.5s ease-in-out infinite alternate;
+}
+
+.b-home .b-hero--building .b-hero__media::after {
+  z-index: 3;
+  inset: -12%;
+  display: block;
+  background: linear-gradient(108deg, transparent 31%, rgba(212,37,39,.05) 42%, rgba(255,255,255,.13) 49%, rgba(212,37,39,.11) 54%, transparent 66%);
+  mix-blend-mode: screen;
+  transform: translate3d(-74%, 0, 0) skewX(-7deg);
+  animation: systemizaHeroLightPass 9.5s cubic-bezier(.2,.65,.2,1) infinite;
+}
+
+.b-home .b-hero--building .b-hero__veil {
+  z-index: 2;
+}
+
+.b-home .b-hero--building .b-signal-line--hero {
+  z-index: 4;
+  height: 2px;
+  opacity: .5;
+  background: linear-gradient(90deg, transparent 0%, rgba(212,37,39,.12) 24%, #d42527 46%, rgba(255,210,210,.9) 50%, #d42527 54%, rgba(212,37,39,.12) 76%, transparent 100%);
+  background-size: 210% 100%;
+  box-shadow: 0 0 18px rgba(212,37,39,.72), 0 0 44px rgba(212,37,39,.3);
+  animation: systemizaHeroSignal 5.8s ease-in-out infinite;
+}
+
+.b-home .b-hero--building.hero-motion-paused .b-hero__media img,
+.b-home .b-hero--building.hero-motion-paused .b-hero__media::before,
+.b-home .b-hero--building.hero-motion-paused .b-hero__media::after,
+.b-home .b-hero--building.hero-motion-paused .b-signal-line--hero {
+  animation-play-state: paused;
+}
+
+@keyframes systemizaHeroCamera {
+  0% {
+    transform: translate3d(calc(var(--hero-pan-x) - 9px), calc(var(--hero-parallax) - 5px), 0) scale(1.075);
+  }
+  52% {
+    transform: translate3d(var(--hero-pan-x), calc(var(--hero-parallax) + 1px), 0) scale(1.103);
+  }
+  100% {
+    transform: translate3d(calc(var(--hero-pan-x) + 9px), calc(var(--hero-parallax) + 6px), 0) scale(1.122);
+  }
+}
+
+@keyframes systemizaHeroGlow {
+  0% { opacity: .3; transform: translate3d(-2%, -.5%, 0) scale(1.025); }
+  55% { opacity: .62; }
+  100% { opacity: .4; transform: translate3d(2.5%, .8%, 0) scale(1.075); }
+}
+
+@keyframes systemizaHeroLightPass {
+  0%, 18% { opacity: 0; transform: translate3d(-74%, 0, 0) skewX(-7deg); }
+  34% { opacity: .78; }
+  58% { opacity: .26; }
+  70%, 100% { opacity: 0; transform: translate3d(72%, 0, 0) skewX(-7deg); }
+}
+
+@keyframes systemizaHeroSignal {
+  0%, 100% { opacity: .22; background-position: 100% 50%; transform: scaleX(.82); }
+  46% { opacity: .72; }
+  58% { opacity: .58; background-position: 0 50%; transform: scaleX(1); }
+}
+
+/* Center the actual display word across the complete integration field. */
+.b-home .b-integration__word {
+  left: 50%;
+  width: max-content;
+  white-space: nowrap;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 1100px) {
+  .b-home .b-hero--building .b-hero__media img {
+    animation-name: systemizaHeroCameraTablet;
+    animation-duration: 18s;
+  }
+
+  @keyframes systemizaHeroCameraTablet {
+    0% { transform: translate3d(calc(var(--hero-pan-x) - 6px), calc(var(--hero-parallax) - 3px), 0) scale(1.07); }
+    100% { transform: translate3d(calc(var(--hero-pan-x) + 6px), calc(var(--hero-parallax) + 4px), 0) scale(1.108); }
+  }
+}
+
+@media (max-width: 900px) {
+  .b-home .b-chapter__copy,
+  .b-home .b-chapter:nth-of-type(even) .b-chapter__copy {
+    padding: 54px var(--pad);
+  }
+
+  .b-home .b-integration__word {
+    max-width: calc(100% - 24px);
+  }
+}
+
+@media (max-width: 640px) {
+  .b-home .b-hero--building .b-hero__media {
+    opacity: .9;
+    transform: scale(1.012);
+    transition-duration: 1.15s;
+  }
+
+  .b-home .b-hero--building .b-hero__media img {
+    animation: systemizaHeroCameraMobile 19s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  .b-home .b-hero--building .b-hero__media::before {
+    opacity: .3;
+    animation-duration: 11s;
+  }
+
+  .b-home .b-hero--building .b-hero__media::after {
+    display: block;
+    opacity: .3;
+    animation-duration: 13s;
+  }
+
+  .b-home .b-hero--building .b-signal-line--hero {
+    height: 1px;
+    opacity: .38;
+    animation-duration: 7.5s;
+  }
+
+  .b-home .b-chapter__copy,
+  .b-home .b-chapter:nth-of-type(even) .b-chapter__copy {
+    padding: 30px var(--pad);
+  }
+
+  .b-home .b-integration__word {
+    max-width: none;
+    font-size: clamp(72px, 23vw, 82px);
+  }
+
+  @keyframes systemizaHeroCameraMobile {
+    0% { transform: translate3d(calc(var(--hero-pan-x) - 2px), calc(var(--hero-parallax) - 1px), 0) scale(1.04); }
+    100% { transform: translate3d(calc(var(--hero-pan-x) + 2px), calc(var(--hero-parallax) + 2px), 0) scale(1.067); }
+  }
+}
+
+@media (max-width: 380px) {
+  .b-home .b-foundation__title h2 {
+    font-size: 43px;
+  }
+
+  .b-home .b-finale h2 {
+    font-size: 54px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .b-home .b-hero--building .b-hero__media,
+  body.b-home.polish-loaded .b-hero--building .b-hero__media {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .b-home .b-hero--building .b-hero__media img {
+    animation: none;
+    transform: none;
+    filter: none;
+    will-change: auto;
+  }
+
+  .b-home .b-hero--building .b-hero__media::before,
+  .b-home .b-hero--building .b-hero__media::after,
+  .b-home .b-hero--building .b-signal-line--hero {
+    animation: none;
+  }
+}

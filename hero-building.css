@@ -1,0 +1,296 @@
+/* Homepage opening scene — composed around the supplied Systemiza building image. */
+.b-hero--building {
+  min-height: 100svh;
+  height: auto;
+  align-items: stretch;
+  isolation: isolate;
+}
+
+.b-home .menu-toggle {
+  color: inherit;
+}
+
+.b-hero--building .b-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 48%;
+  image-rendering: auto;
+}
+
+.b-hero--building .b-hero__veil {
+  background:
+    linear-gradient(180deg, rgba(4,5,6,.54) 0%, rgba(4,5,6,.05) 28%, rgba(4,5,6,.03) 52%, rgba(4,5,6,.9) 100%),
+    linear-gradient(90deg, rgba(4,5,6,.34) 0%, transparent 35%, transparent 76%, rgba(4,5,6,.24) 100%);
+}
+
+.b-hero--building .b-signal-line--hero {
+  top: 49%;
+  opacity: .42;
+  mix-blend-mode: screen;
+}
+
+.b-hero--building .b-hero__content {
+  min-height: 100svh;
+  padding: 128px 0 30px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, .55fr);
+  grid-template-rows: auto 1fr auto;
+  column-gap: clamp(44px, 6vw, 96px);
+}
+
+.b-hero__topline {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid rgba(255,255,255,.34);
+}
+
+.b-hero__topline p {
+  margin: 0;
+  color: rgba(255,255,255,.82);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+
+.b-hero--building h1 {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: end;
+  max-width: 850px;
+  margin: 0 0 28px;
+  font-size: clamp(64px, 6.7vw, 104px);
+  line-height: .84;
+  letter-spacing: -.025em;
+  text-transform: none;
+}
+
+.b-hero--building h1 span,
+.b-hero--building h1 strong {
+  display: block;
+}
+
+.b-hero--building h1 span {
+  font-weight: 300;
+}
+
+.b-hero--building h1 strong {
+  margin-left: 0;
+  color: transparent;
+  font-weight: 600;
+  -webkit-text-stroke: 1px rgba(255,255,255,.9);
+  text-stroke: 1px rgba(255,255,255,.9);
+}
+
+.b-hero--building .b-hero__lower {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: end;
+  display: block;
+  margin: 0 0 28px;
+  padding: 4px 0 4px 24px;
+  border-left: 2px solid var(--red);
+}
+
+.b-hero--building .b-hero__lower > p {
+  max-width: 430px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: rgba(255,255,255,.84);
+}
+
+.b-hero--building .b-hero__lower .b-actions {
+  margin-top: 22px;
+}
+
+.b-hero--building .b-hero__roles {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  margin: 0;
+  padding-top: 14px;
+}
+
+.b-hero--building .b-scroll-cue {
+  bottom: 38px;
+}
+
+@media (max-width: 1100px) {
+  .b-hero--building .b-hero__content {
+    grid-template-columns: minmax(0, 1fr) minmax(290px, .48fr);
+    column-gap: 36px;
+  }
+
+  .b-hero--building h1 {
+    font-size: clamp(58px, 6.7vw, 74px);
+  }
+
+  .b-hero--building .b-hero__lower {
+    padding-left: 18px;
+  }
+
+  .b-hero--building .b-hero__lower .b-actions {
+    display: grid;
+  }
+}
+
+@media (max-width: 900px) {
+  .b-hero--building .b-hero__media img {
+    object-position: 51% 48%;
+  }
+
+  .b-hero--building .b-hero__content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    padding-top: 104px;
+  }
+
+  .b-hero--building h1 {
+    grid-column: 1;
+    grid-row: 2;
+    max-width: 720px;
+    margin-bottom: 16px;
+    font-size: clamp(58px, 9vw, 72px);
+  }
+
+  .b-hero--building .b-hero__lower {
+    grid-column: 1;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: end;
+    margin-bottom: 22px;
+    max-width: none;
+  }
+
+  .b-hero--building .b-hero__lower .b-actions {
+    display: flex;
+    margin-top: 0;
+  }
+
+  .b-hero--building .b-hero__roles {
+    grid-row: 4;
+  }
+}
+
+@media (max-width: 640px) {
+  .b-hero--building {
+    min-height: max(900px, 100svh);
+    display: block;
+    background: #070809;
+  }
+
+  .b-hero--building .b-hero__media {
+    inset: 0 0 auto;
+    height: clamp(390px, 54svh, 470px);
+  }
+
+  .b-hero--building .b-hero__media img {
+    object-position: 51% 48%;
+  }
+
+  .b-hero--building .b-hero__veil {
+    background:
+      linear-gradient(180deg, rgba(4,5,6,.32) 0%, rgba(4,5,6,0) 45%, #070809 100%),
+      linear-gradient(90deg, rgba(4,5,6,.12), transparent 55%, rgba(4,5,6,.12));
+  }
+
+  .b-hero--building .b-signal-line--hero {
+    top: 47%;
+  }
+
+  .b-hero--building .b-hero__content {
+    min-height: max(900px, 100svh);
+    padding: calc(clamp(390px, 54svh, 470px) + 18px) 0 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .b-hero__topline {
+    padding-bottom: 10px;
+  }
+
+  .b-hero__topline p:last-child {
+    display: none;
+  }
+
+  .b-hero__topline p {
+    font-size: 9px;
+    letter-spacing: .14em;
+  }
+
+  .b-hero--building h1 {
+    margin: 18px 0 16px;
+    max-width: 100%;
+    font-size: clamp(43px, 12.5vw, 54px);
+    line-height: .88;
+  }
+
+  .b-hero--building h1 strong {
+    color: #fff;
+    -webkit-text-stroke: 0;
+    text-stroke: 0;
+  }
+
+  .b-hero--building .b-hero__lower {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border-left: 0;
+  }
+
+  .b-hero--building .b-hero__lower > p {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .b-hero--building .b-hero__lower .b-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-top: 18px;
+  }
+
+  .b-hero--building .b-hero__lower .b-button {
+    width: 100%;
+    min-height: 47px;
+    padding-inline: 12px;
+    font-size: 14px;
+  }
+
+  .b-hero--building .b-hero__roles {
+    margin-top: auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px 18px;
+    padding-top: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .b-hero--building .b-hero__media {
+    height: clamp(370px, 52svh, 430px);
+  }
+
+  .b-hero--building .b-hero__content {
+    padding-top: calc(clamp(370px, 52svh, 430px) + 16px);
+  }
+
+  .b-hero--building h1 {
+    font-size: 42px;
+  }
+
+  .b-hero--building .b-hero__lower .b-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .b-hero--building .b-signal-line--hero {
+    animation: none;
+  }
+}
